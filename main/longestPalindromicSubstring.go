@@ -38,7 +38,6 @@ func LongestPalindromicSubstring(str string) string {
 func getLongestPalindromic(s string, left int, right int) (int, int) {
 
 	for left >= 0 && (right < len(s)) {
-		println(string(s[left]), "->", string(s[right]))
 		if s[left] != s[right] {
 			break
 		}
