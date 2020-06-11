@@ -15,12 +15,11 @@ func BubbleSort(array []int) []int {
 		swaps := 0
 
 		for i := 0; i < end; i++ {
-			var aux int
 
 			if array[i] > array[i+1] {
-				aux = array[i]
-				array[i] = array[i+1]
-				array[i+1] = aux
+				array[i] = array[i] + array[i+1]
+				array[i+1] = array[i] - array[i+1]
+				array[i] = array[i] - array[i+1]
 				swaps++
 			} else if array[i] < array[i+1] {
 				swaps++
