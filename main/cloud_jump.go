@@ -11,7 +11,7 @@ func jumpingOnClouds(c []int32) int32 {
 
 	for pos < len(c) {
 		if pos+1 < len(c) {
-			if c[pos+1] == 0{
+			if c[pos+1] == 0 {
 				jumps++
 			}
 		}

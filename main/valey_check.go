@@ -7,7 +7,6 @@ func main() {
 // Complete the countingValleys function below.
 func countingValleys(n int32, s string) int32 {
 
-
 	result, vales := 0, 0
 
 	for _, val := range s {
