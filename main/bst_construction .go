@@ -21,7 +21,7 @@ func (tree *BST) Insert(value int) *BST {
 
 	next := tree
 
-	for true {
+	for {
 
 		if value >= next.Value {
 			if next.Right == nil {
@@ -89,7 +89,7 @@ func (tree *BST) removeNode(value int, parentNode *BST) {
 		} else {
 			if node.Right != nil && node.Left != nil {
 				node.Value = node.Right.getMinValue()
-				node.Right.Remove(node.Value)
+				node.Right.removeNode(node.Value, node)
 			} else if parentNode == nil {
 				if node.Left != nil {
 					node.Value = node.Left.Value
@@ -122,13 +122,9 @@ func (tree *BST) removeNode(value int, parentNode *BST) {
 
 func (tree *BST) getMinValue() int {
 
-	currentNode := tree
-	lastMinVal := tree.Value
-
-	for currentNode != nil {
-		lastMinVal = currentNode.Value
-		currentNode = currentNode.Left
+	if tree.Left == nil {
+		return tree.Value
 	}
 
-	return lastMinVal
+	return tree.Left.getMinValue()
 }
