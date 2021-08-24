@@ -1,24 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func main() {
 
-	x := quickSort([]int32{9, 10, 3, 0, 1, 8, 12})
+	array := []int32{55, 90, 74, 20, 16, 46, 43, 59, 2, 99, 79, 10, 73, 1, 68, 56, 3, 87, 40, 78, 14, 18, 51, 24, 57, 89, 4, 62, 53, 23, 93, 41, 95, 84, 88}
+
+	x := quickSort(array)
 
 	fmt.Printf("%v", quickSort(x))
 }
 
 func quickSort(arr []int32) []int32 {
 
-	len := len(arr)
+	size := len(arr)
 
-	if len < 2 {
+	if size < 2 {
 		return arr
 	}
 
-	if len == 2 {
-		result := make([]int32, len)
+	if size == 2 {
+		result := make([]int32, size)
 		if arr[0] <= arr[1] {
 			return arr
 		}
@@ -27,7 +32,8 @@ func quickSort(arr []int32) []int32 {
 		return result
 	}
 
-	pivot := arr[len-1]
+	pivot := arr[rand.Int()%size]
+
 	left := make([]int32, 0)
 	right := make([]int32, 0)
 
@@ -40,9 +46,10 @@ func quickSort(arr []int32) []int32 {
 		}
 	}
 
-	resultLeft := append(quickSort(left), pivot)
-	resultRight := append(quickSort(right))
+	result := make([]int32, 0)
 
-	return append(resultLeft, resultRight...)
+	result = append(quickSort(left), pivot)
+
+	return append(result, quickSort(right)...)
 
 }
