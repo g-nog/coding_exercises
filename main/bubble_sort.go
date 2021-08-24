@@ -1,8 +1,10 @@
 package main
 
+import "fmt"
+
 func main() {
 
-	BubbleSort([]int{8, 5, 2, 9, 5, 6, 3})
+	fmt.Printf("result: %v", BubbleSort([]int{8, 5, 2, 9, 5, 6, 3}))
 
 }
 
