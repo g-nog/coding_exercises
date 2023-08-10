@@ -4,7 +4,13 @@ func main() {
 	expected := true
 	output := IsPalindrome("abcdcba")
 
-	print(expected, output)
+	print("Expected -> ", expected, "; Got-> ", output, "; Result -> ", func() string {
+		if expected == output {
+			return "SUCCESS"
+		}
+
+		return "FAIL"
+	}())
 }
 
 func IsPalindrome(str string) bool {
