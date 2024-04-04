@@ -4,11 +4,11 @@ func main() {
 	array := []int{5, 1, 22, 25, 6, -1, 8, 10}
 	seq := []int{1, 6, -1, -1}
 
-	print(IsValidSubsequence(array, seq))
+	print(xIsValidSubsequence(array, seq))
 
 }
 
-func IsValidSubsequence(array []int, sequence []int) bool {
+func xIsValidSubsequence(array []int, sequence []int) bool {
 
 	seq_pos, seq_size := 0, len(sequence)
 
